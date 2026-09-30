@@ -52,11 +52,11 @@ public class Cuenta {
         this.comisionMensual = comisionMensual;
     }
 
-    public void consignar(float cantidad) { 
-        if (cantidad > 0) {
-            this.saldo += cantidad;
-            this.numeroConsignaciones++;
+    public void consignar(float cantidad) {
+        if (cantidad < 0) {
+            throw new IllegalArgumentException("La cantidad no puede ser negativa");
         }
+        saldo += cantidad;
     }
 
     public void retirar(float cantidad) { 

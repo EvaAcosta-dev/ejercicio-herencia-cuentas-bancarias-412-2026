@@ -10,7 +10,7 @@ public class CuentaAhorros extends Cuenta {
         } else {
             this.activa = true;
         }
-    }
+    } 
 
     @Override
     public void retirar(float cantidad) {
@@ -22,12 +22,9 @@ public class CuentaAhorros extends Cuenta {
      }
 
     @Override
-    public void consignar(float cantidad) { 
-        if (activa) {
-            super.consignar(cantidad);
-        } else {
-            System.out.println("La cuenta está inactiva.");
-        }
+
+    public void consignar(float cantidad) {
+        super.consignar(cantidad);
     }
 
     @Override
