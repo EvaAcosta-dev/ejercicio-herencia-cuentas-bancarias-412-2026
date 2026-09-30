@@ -7,7 +7,7 @@ public class Cuenta {
     protected float tasaAnual;
     protected float comisionMensual = 0;
 
-    Cuenta(float saldo, float tasaAnual) {
+    public Cuenta(float saldo, float tasaAnual) {
         this.saldo = saldo;
         this.tasaAnual = tasaAnual;
     }
