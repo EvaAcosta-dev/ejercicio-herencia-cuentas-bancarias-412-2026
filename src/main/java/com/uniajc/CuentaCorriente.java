@@ -44,6 +44,9 @@ public class CuentaCorriente extends Cuenta {
         }
         numeroConsignaciones++;
     }
+    public void extractoMensual() {
+
+     }
 
     public void imprimir() {
         System.out.println("Saldo: " + saldo);
@@ -51,4 +54,7 @@ public class CuentaCorriente extends Cuenta {
         System.out.println("Numero de transacciones realizadas: " + (numeroConsignaciones + numeroRetiros));
         System.out.println("Sobregiro: " + sobregiro);
     }
+
+    
+
 }

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class CuentaTest {
 
+	// Suite de pruebas para metodo consignar de la clase Cuenta
 	@Test
 	void testConsignarActualizaSaldo() {
 		Cuenta cuenta = new Cuenta(100.0f, 0.05f);
@@ -19,8 +20,12 @@ public class CuentaTest {
 	void testConsignarCantidadNegativaEsRechazada() {
 		Cuenta cuenta = new Cuenta(100.0f, 0.05f);
 
-		assertThrows(IllegalArgumentException.class, () -> cuenta.consignar(-10.0f));
-		assertEquals(100.0f, cuenta.getSaldo(), 0.001f);
+		IllegalArgumentException exception = assertThrows(
+			IllegalArgumentException.class, () -> cuenta.consignar(-10.0f)
+		);
+		assertEquals("La cantidad no puede ser negativa", exception.getMessage());
+		cuenta.consignar(10.0f);
+		assertEquals(110.0f, cuenta.getSaldo(), 0.001f);
 	}
 
 	@Test
@@ -31,4 +36,9 @@ public class CuentaTest {
 
 		assertEquals(100.0f, cuenta.getSaldo(), 0.001f);
 	}
+
+
+	// Suite de pruebas para metodo retirar de la clase Cuenta
+	// Suite de pruebas para metodo extractoMensual de la clase Cuenta
+
 }

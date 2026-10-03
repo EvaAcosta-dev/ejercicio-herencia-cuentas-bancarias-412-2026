@@ -7,6 +7,8 @@ public class Cuenta {
     protected float tasaAnual;
     protected float comisionMensual = 0;
 
+    final String MENSAJE_CANTIDAD_NEGATIVA = "La cantidad no puede ser negativa";
+
     public Cuenta(float saldo, float tasaAnual) {
         this.saldo = saldo;
         this.tasaAnual = tasaAnual;
@@ -54,6 +56,7 @@ public class Cuenta {
 
     public void consignar(float cantidad) {
         if (cantidad < 0) {
+<<<<<<< HEAD
             throw new IllegalArgumentException("La cantidad no puede ser negativa");
         }
         saldo += cantidad;
@@ -83,6 +86,54 @@ public class Cuenta {
         System.out.println("Número de retiros: " + this.numeroRetiros);
         System.out.println("Tasa anual: " + this.tasaAnual + "%");
         System.out.println("Comisión mensual: $" + this.comisionMensual);
+=======
+            throw new IllegalArgumentException(MENSAJE_CANTIDAD_NEGATIVA);
+        }
+        saldo += cantidad;
+        numeroConsignaciones++;
+        // numeroConsignaciones = numeroConsignaciones + 1;
+        System.out.println("Se ha consignado: " + cantidad);
+    }
+
+    public void retirar(float cantidad) {
+        if (cantidad < 0) {
+            throw new IllegalArgumentException(MENSAJE_CANTIDAD_NEGATIVA);
+        }
+
+        if (cantidad > saldo) {
+            throw new IllegalArgumentException("Fondos insuficientes");
+        }
+
+        saldo -= cantidad;
+
+        numeroRetiros++;
+        // numeroRetiros = numeroRetiros + 1;
+        System.out.println("Se ha retirado: " + cantidad);
+    }
+
+    public void calcularInteres() { 
+        float tasaMensual = tasaAnual / 12;
+
+        float interesMensual = saldo * tasaMensual;
+
+        // saldo = saldo + interesMensual;
+
+        saldo += interesMensual;
+    }
+
+    public void extractoMensual() { 
+        calcularInteres();
+        saldo -= comisionMensual;
+    }
+
+    public void imprimir() { 
+        System.out.println("Saldo: " + saldo);
+        System.out.println("Número de consignaciones: " + numeroConsignaciones);
+        System.out.println("Número de retiros: " + numeroRetiros);
+        System.out.println("Numero de Transacciones: " + (numeroConsignaciones + numeroRetiros));
+        System.out.println("Tasa anual: " + tasaAnual);
+        System.out.println("Comisión mensual: " + comisionMensual);
+>>>>>>> upstream/main
     }
 
 }
