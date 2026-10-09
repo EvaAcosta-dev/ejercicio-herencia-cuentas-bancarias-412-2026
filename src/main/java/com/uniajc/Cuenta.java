@@ -56,37 +56,6 @@ public class Cuenta {
 
     public void consignar(float cantidad) {
         if (cantidad < 0) {
-<<<<<<< HEAD
-            throw new IllegalArgumentException("La cantidad no puede ser negativa");
-        }
-        saldo += cantidad;
-    }
-
-    public void retirar(float cantidad) { 
-         if (cantidad <= this.saldo) {
-            this.saldo -= cantidad;
-            this.numeroRetiros++;
-        } else {
-            System.out.println("Saldo insuficiente.El monto a retirar es superior al que tiene en la cuenta");
-        }
-    }
-
-    public void calcularInteres() {
-        float interesMensual = (this.tasaAnual / 12) / 100;
-        this.saldo += this.saldo * interesMensual;
-     }
-
-    public void extractoMensual() {
-        this.saldo -= this.comisionMensual;
-        this.calcularInteres();
-     }
-     public void imprimir() {
-        System.out.println("Saldo: $" + this.saldo);
-        System.out.println("Número de consignaciones: " + this.numeroConsignaciones);
-        System.out.println("Número de retiros: " + this.numeroRetiros);
-        System.out.println("Tasa anual: " + this.tasaAnual + "%");
-        System.out.println("Comisión mensual: $" + this.comisionMensual);
-=======
             throw new IllegalArgumentException(MENSAJE_CANTIDAD_NEGATIVA);
         }
         saldo += cantidad;
@@ -133,7 +102,6 @@ public class Cuenta {
         System.out.println("Numero de Transacciones: " + (numeroConsignaciones + numeroRetiros));
         System.out.println("Tasa anual: " + tasaAnual);
         System.out.println("Comisión mensual: " + comisionMensual);
->>>>>>> upstream/main
     }
 
 }
